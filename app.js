@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const { readCommandLineArguments } = require("./lib/commandLine");
 const { connect, close } = require("./lib/database");
 const { getPassword, setPassword } = require("./lib/passwords");
@@ -6,10 +8,7 @@ const { isMasterPasswordCorrect } = require("./lib/validation");
 
 async function run() {
   console.log("Connecting to database...");
-  await connect(
-    "mongodb+srv://leon:9MkwXXRt3qB3vCxN@cluster0.912k3.mongodb.net/pw4u?retryWrites=true&w=majority",
-    "pw4u"
-  );
+  await connect(process.env.MONGO_DB_URI, process.env.MONGO_DB_NAME);
   console.log("Connected to database 🎉");
 
   const masterPassword = await askForMasterPassword();
