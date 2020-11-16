@@ -1,22 +1,42 @@
 require("dotenv").config();
 
 const express = require("express");
-const { getPassword } = require("./lib/passwords");
+const { getPassword, setPassword } = require("./lib/passwords");
 const { connect } = require("./lib/database");
 
 const app = express();
+app.use(express.json());
 const port = 3600;
-
-//route zu "passwords/:name"
 
 app.get("/passwords/:name", async (request, response) => {
   const { name } = request.params;
-  const passwordValue = await getPassword(name);
-  response.send(passwordValue);
+  try {
+    const passwordValue = await getPassword(name);
+
+    if (!passwordValue) {
+      response
+        .status(404)
+        .send("could not find the passwords you are looing for");
+      return;
+    }
+    response.send(passwordValue);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal Server error");
+  }
 });
 
-app.post("/passwords", (request, response) => {
-  response.send("Under construction");
+app.post("/passwords", async (request, response) => {
+  // response.send("Under construction");
+  const password = request.body;
+
+  try {
+    await setPassword(password.name, password.value);
+    response.send(`Successfully set ${password.name}`);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Unexpected error. PLease try again later");
+  }
 });
 
 async function run() {
