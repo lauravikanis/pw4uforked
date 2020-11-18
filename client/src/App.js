@@ -9,9 +9,17 @@ const Passwordform = styled.form`
   flex-direction: column;
   align-items: center;
   margin: 2.5rem;
+  padding: 2.5rem;
+  background-color: palevioletred;
+  border-radius: 25px;
 
   input {
-    margin: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  span {
+    font-size: 5rem;
+    text-shadow: white;
   }
 `;
 
@@ -33,9 +41,10 @@ function App() {
           setInputValue("");
         }}
       >
+        <span>🔐</span>
         <input
           type="text"
-          placeholder="Passwordname?"
+          placeholder="Insert Passwordname"
           value={InputValue}
           onChange={(event) => setInputValue(event.target.value)}
           required
