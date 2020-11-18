@@ -49,7 +49,7 @@ function App() {
           onChange={(event) => setInputValue(event.target.value)}
           required
         />
-        <div>Your password is: {data}</div>
+        <div>Your pascdsgsword is: {data}</div>
       </Passwordform>
     </div>
   );
