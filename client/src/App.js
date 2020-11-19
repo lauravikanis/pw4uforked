@@ -19,6 +19,8 @@ const Passwordform = styled.form`
     border-radius: 25px;
     border: 0.5px solid black;
     height: 1.5rem;
+    width: 70%;
+    max-width: 500px;
   }
   span {
     font-size: 5rem;
