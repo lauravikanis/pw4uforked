@@ -10,12 +10,15 @@ const Passwordform = styled.form`
   align-items: center;
   margin: 2.5rem;
   padding: 2.5rem;
-  background-color: palevioletred;
+  background-color: #a4b787;
   border-radius: 25px;
 
   input {
     margin-bottom: 1rem;
     text-align: center;
+    border-radius: 25px;
+    border: 0.5px solid black;
+    height: 1.5rem;
   }
   span {
     font-size: 5rem;
