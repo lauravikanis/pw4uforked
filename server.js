@@ -16,7 +16,7 @@ app.get("/passwords/:name", async (request, response) => {
     if (!passwordValue) {
       response
         .status(404)
-        .send("could not find the passwords you are looing for");
+        .send("could not find the passwords you are looking for");
       return;
     }
     response.send(passwordValue);
