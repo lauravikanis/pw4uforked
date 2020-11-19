@@ -106,3 +106,6 @@ dist
 
 db.json
 .masterPassword
+
+client/build
+client/storybook-static
