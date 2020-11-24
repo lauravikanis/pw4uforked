@@ -14,7 +14,7 @@ const Passwordform = styled.form`
   border-radius: 25px;
 
   input {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     text-align: center;
     border-radius: 25px;
     border: 0.5px solid black;
