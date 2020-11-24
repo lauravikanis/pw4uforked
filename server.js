@@ -9,7 +9,7 @@ const { connect } = require("./lib/database");
 
 const app = express();
 app.use(express.json());
-const port = process.env.port || 3600;
+const port = process.env.PORT || 3600;
 
 app.get("/passwords/:name", async (request, response) => {
   const { name } = request.params;
